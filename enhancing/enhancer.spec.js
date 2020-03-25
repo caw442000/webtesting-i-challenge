@@ -4,7 +4,15 @@ const enhancer = require('./enhancer.js');
 
 describe('enhancer.js', () => {
   describe('repair(item)', () => {
-    it.todo('Should return durability to 100%');
+    it('Should return durability to 100',() => {
+      const item = {
+        name: 'cedric',
+        durability: 65,
+        enhancement: 5
+      };
+      expect(enhancer.repair(item).durability).toBe(100);
+      
+    });
   })
 })
 
