@@ -19,7 +19,7 @@ describe('enhancer.js', () => {
 
 
 describe('enhancer.js', () => {
-  describe('success(item)', () => {
+  describe('succeed(item)', () => {
     it('should increase items enhancement by 1',() => {
       const item = {
         name: 'cedric',
@@ -42,9 +42,36 @@ describe('enhancer.js', () => {
 
 describe('enhancer.js', () => {
   describe('fail(item)', () => {
-    it.todo('should decrease durability of the item by 5 if enhancement is less than 15');
-    it.todo('should decrease durability of the item by 10 if enhancement is 15 or more');
-    it.todo('should decrease enhancement level of the item by 1 if enhancement is 16 or more');
+    it('should decrease durability of the item by 5 if enhancement is less than 15', () => {
+      const item = {
+        name: 'cedric',
+        durability: 65,
+        enhancement: 14
+      };
+
+      expect(enhancer.fail(item).durability).toBe(60);
+
+    });
+    it('should decrease durability of the item by 10 if enhancement is 15 or more', () => {
+      const item = {
+        name: 'cedric',
+        durability: 65,
+        enhancement: 17
+      };
+
+      expect(enhancer.fail(item).durability).toBe(55);
+
+    });
+    it('should decrease enhancement level of the item by 1 if enhancement is 16 or more', () => {
+      const item = {
+        name: 'cedric',
+        durability: 65,
+        enhancement: 17
+      };
+
+      expect(enhancer.fail(item).enhancement).toBe(16);
+
+    });
     
   })
 })
