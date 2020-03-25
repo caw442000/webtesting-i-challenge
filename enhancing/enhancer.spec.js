@@ -20,8 +20,23 @@ describe('enhancer.js', () => {
 
 describe('enhancer.js', () => {
   describe('success(item)', () => {
-    it.todo('should increase items enhancement by 1');
-    it.todo('should not increase enhancement level if level of enhancement is 20');
+    it('should increase items enhancement by 1',() => {
+      const item = {
+        name: 'cedric',
+        durability: 65,
+        enhancement: 5
+      };
+      expect(enhancer.succeed(item).enhancement).toBe(6);
+    });
+    it('should not increase enhancement level if level of enhancement is 20', () => {
+      const item = {
+        name: 'cedric',
+        durability: 65,
+        enhancement: 20
+      };
+
+      expect(enhancer.succeed(item).enhancement).toBe(20);
+    });
   })
 })
 
